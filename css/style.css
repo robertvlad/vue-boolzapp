@@ -26,12 +26,17 @@ main{
     transform: translateX(-50%);
 }
 
+i{
+    cursor: pointer;
+}
+
 
 /* LEFT SIDE */
 
 .left-side{
     height: 94vh;
 }
+
 .profile-area{
     height: 26%;
 }
@@ -39,6 +44,7 @@ main{
 .notifications p{
     font-size: .8rem;
 }
+
 .notifications a{
     font-size: .6rem;
 }
@@ -70,6 +76,22 @@ main{
     cursor: pointer;
 }
 
+.chat-area{
+    display: none;
+}
+
+
+/* RIGHT SIDE */
+
+.right-side{
+    height: 94vh;
+}
+
+.chat-view{
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+}
+
 
 /* ICONS */
 
@@ -93,4 +115,18 @@ main{
 
 .azure-background{
     background-color: #8edafc;
+}
+
+.black-icon{
+    color: #6b7376;
+}
+
+/* SIZING */
+
+.h-80{
+    height: 80%;
+}
+
+.h-10{
+    height: 10%;
 }

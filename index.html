@@ -48,10 +48,10 @@
                                     </div>
     
                                     <!-- PULSANTI LATERALI AL PROFILO -->
-                                    <div class="contact-name-search">
-                                        <i class="grey-icon fa-solid fa-circle-notch"></i>
-                                        <i class="grey-icon fa-solid fa-message px-2"></i>
-                                        <i class="grey-icon fa-solid fa-ellipsis-vertical"></i>
+                                    <div class="contact-name-search grey-icon">
+                                        <i class="fa-solid fa-circle-notch"></i>
+                                        <i class="fa-solid fa-message px-2"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
                                     </div>
                                 </div>
     
@@ -74,23 +74,70 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- CHATS -->
                             <div class="contacts-list">
-                                <div v-for="(element, index) in contacts" class="col-12 d-flex align-items-center justify-content-between p-2 each-card">
+                                <div v-for="(element, index) in contacts" @click="element.visible = !element.visible" class="col-12 d-flex align-items-center justify-content-between p-2 each-card">
                                     <div class="contact-name d-flex">
-                                        <img :src="`img/avatar${element.avatar}.jpg`" alt="">
-                                    <div class="contact-name-description d-flex flex-column justify-content-center">
-                                        <p class="m-0 fs-4">{{ element.name }}</p>
-                                        <span class="text-secondary">Ultimo messaggio inviato</span>
+                                        <img :src="`img/avatar${element.avatar}.jpg`" alt="" class="me-2">
+                                        <div class="contact-name-description d-flex flex-column justify-content-center">
+                                            <p class="m-0 fs-5">{{ element.name }}</p>
+                                            <span class="text-secondary">Ultimo messaggio inviato</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="contact-name-search">
-                                    <span class="text-secondary">{{ element.messages[element.messages.length - 1].date }}</span>
+                                    <div class="contact-name-search">
+                                        <span class="text-secondary">{{ element.messages[element.messages.length - 1].date }}</span>
+                                    </div>                                   
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-7">
 
+                    <!-- CHAT SECTION """"OPEN""""" -->
+                    <div class="col-7 chat-area" v-for="(element,index) in contacts" :class="(element.visible == false) ? 'd-block' : '' ">
+                        <div class="right-side">
+                            <div class="row h-10">
+
+                                <!-- INFO UTENTE E LAST ACCESS -->
+                                <div class="col-12 grey-background d-flex align-items-center justify-content-between p-2">
+
+                                    <!-- LEFT SIDE -->
+                                    <div class="px-2 d-flex">
+                                        <!-- CONTACT IMAGE -->
+                                        <div class="contact-name d-flex align-items-center pe-2">
+                                            <img :src="`img/avatar${element.avatar}.jpg`" alt="" class="ms-4 me-2">
+                                        </div>
+
+                                        <!-- CONTACT NAME -->
+                                        <div class="contact-name-description d-flex flex-column">
+                                            <p class="m-0 fs-4">{{element.name}}</p>
+                                            <span>Ultimo accesso {{ element.messages[element.messages.length - 1].date }}</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- RIGHT SIDE BUTTONS -->
+                                    <div class="contact-name-search grey-icon pe-3">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <i class="fa-solid fa-paperclip px-2"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CHAT -->
+                            <div class="row h-80 chat-view">
+        
+                            </div>
+
+                            <!-- INPUT SECTION TO SEND MESSAGES -->
+                            <div class="row h-10">
+                                <div class="col-12 grey-background d-flex align-items-center justify-content-evenly">
+                                    <i class="fa-regular fa-face-smile black-icon"></i>
+                                    <input class="rounded form-control w-75" type="text" placeholder="Scrivi un messaggio">
+                                    <i class="fa-solid fa-microphone black-icon"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
