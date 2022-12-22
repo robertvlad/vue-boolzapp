@@ -87,7 +87,7 @@ i{
     background-image: url(../img/mine.jpg);
     overflow-y: scroll;
     overflow-x: hidden;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
 }
 
 .message-color{

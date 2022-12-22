@@ -3,6 +3,7 @@
 const app = new Vue({
     el: '#app',
     data: {
+        searchUser: '',
         currentUser: null,
         textNewMessage: '',
         contacts: [
@@ -189,6 +190,15 @@ const app = new Vue({
                 this.currentUser.messages.push(answerObj);
             },1000);
             this.textNewMessage = "";
+        },
+        viewConsole(array, userToSearch){
+            for(let i = 0; i < array.length; i++){
+                array[i].visible = false
+                if(array[i].name.toLowerCase() == userToSearch.toLowerCase()){
+                    array[i].visible = true;
+                    console.log(array[i].name);
+                }
+            }
         }
     }
 })

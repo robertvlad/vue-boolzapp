@@ -70,14 +70,14 @@
                                         <span class="bg-white input-group-text border-0">
                                             <i class="fa-solid fa-magnifying-glass"></i>
                                         </span>
-                                        <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
+                                        <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat" v-model="searchUser" @keydown.enter="viewConsole(contacts, searchUser )">
                                     </div>
                                 </div>
                             </div>
 
                             <!-- CHATS -->
                             <div class="contacts-list">
-                                <div v-for="(element, index) in contacts" @click="setUser(element)" :class="(!element.visible) ? 'd-none' : 'd-block'" class="col-12 d-flex align-items-center justify-content-between p-2 each-card">
+                                <div v-for="(element, index) in contacts" @click="setUser(element)" :class="(!element.visible) ? 'd-none' : ''" class="col-12 d-flex align-items-center justify-content-between p-2 each-card">
                                     <div class="contact-name d-flex">
                                         <img :src="`img/avatar${element.avatar}.jpg`" alt="" class="me-2">
                                         <div class="contact-name-description d-flex flex-column justify-content-center">
