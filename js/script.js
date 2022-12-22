@@ -4,6 +4,7 @@ const app = new Vue({
     el: '#app',
     data: {
         currentUser: null,
+        textNewMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -171,6 +172,23 @@ const app = new Vue({
     methods: {
         setUser(user){
             this.currentUser = user;
+        },
+        addNewMessage(newMessage){
+            const MessageObj = {
+                date: "22/12/22 12:00:00",
+                message: newMessage,
+                status: "sent"
+            }
+            const answerObj ={
+                date: "22/12/22 12:00:01",
+                message: "OK",
+                status: "received"
+            }
+            this.currentUser.messages.push(MessageObj);
+            setTimeout(() =>{
+                this.currentUser.messages.push(answerObj);
+            },1000);
+            this.textNewMessage = "";
         }
     }
 })
