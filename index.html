@@ -25,46 +25,66 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     </head>
 
-    <body>
+    <body class="body-color">
+
+        <!-- GREEN BAR  -->
         <header>
 
         </header>
+
+        <!-- APP -->
         <main id="app" class="grey-background">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-5">
-                        <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="left-side">
+                            <div class="profile-area">
 
-                            <!-- PROFILO DELL'UTENTE -->
-                            <div class="col-12 grey-background d-flex align-items-center justify-content-between p-2">
-                                <div class="contact-name d-flex">
-                                    <p class="m-0">Sofia</p>
+                                <!-- PROFILO DELL'UTENTE -->
+                                <div class="col-12 grey-background d-flex align-items-center justify-content-between p-2">
+                                    <div class="contact-name d-flex align-items-center">
+                                        <img src="img/avatar_2.jpg" class="me-2">
+                                        <p class="m-0">Sofia</p>
+                                    </div>
+    
+                                    <!-- PULSANTI LATERALI AL PROFILO -->
+                                    <div class="contact-name-search">
+                                        <i class="grey-icon fa-solid fa-circle-notch"></i>
+                                        <i class="grey-icon fa-solid fa-message px-2"></i>
+                                        <i class="grey-icon fa-solid fa-ellipsis-vertical"></i>
+                                    </div>
                                 </div>
-
-                                <!-- PULSANTI LATERALI AL PROFILO -->
+    
+                                <!-- SEZIONE NOTIFICHE -->
+                                <div class="azure-background col-12 d-flex">
+                                    <i class="bel-icon fa-regular fa-bell-slash p-3 m-2 bg-white"></i>
+                                    <div class="notifications d-flex flex-column justify-content-center">
+                                        <p class="m-0">Ricevere notifiche sui nuovi messaggi</p>
+                                        <a href="#" class="text-dark">Attiva Notifiche desktop</a>
+                                    </div>
+                                </div>
+    
+                                <!-- SEARCH DEI CONTATTI -->
+                                <div class="col-12 pt-2 bg-light">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="bg-white input-group-text border-0">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </span>
+                                        <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contacts-list">
+                                <div v-for="(element, index) in contacts" class="col-12 d-flex align-items-center justify-content-between p-2 each-card">
+                                    <div class="contact-name d-flex">
+                                        <img :src="`img/avatar${element.avatar}.jpg`" alt="">
+                                    <div class="contact-name-description d-flex flex-column justify-content-center">
+                                        <p class="m-0 fs-4">{{ element.name }}</p>
+                                        <span class="text-secondary">Ultimo messaggio inviato</span>
+                                    </div>
+                                </div>
                                 <div class="contact-name-search">
-                                    <i class="grey-icon fa-solid fa-circle-notch"></i>
-                                    <i class="grey-icon fa-solid fa-message px-2"></i>
-                                    <i class="grey-icon fa-solid fa-ellipsis-vertical"></i>
-                                </div>
-                            </div>
-
-                            <!-- SEZIONE NOTIFICHE -->
-                            <div class="azure-background col-12 d-flex">
-                                <i class="bel-icon fa-regular fa-bell-slash p-3 m-2 bg-white"></i>
-                                <div class="notify-wrapper d-flex flex-column justify-content-center">
-                                    <p class="m-0">Ricevere notifiche sui nuovi messaggi</p>
-                                    <a href="#" class="text-dark">Attiva Notifiche desktop</a>
-                                </div>
-                            </div>
-
-                            <!-- SEARCH DEI CONTATTI -->
-                            <div class="col-12 pt-2 bg-light">
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="bg-white input-group-text border-0">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </span>
-                                    <input type="text" class="form-control border-0">
+                                    <span class="text-secondary">{{ element.messages[element.messages.length - 1].date }}</span>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +94,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </main>    
         
         <!-- JAVASCRIPT -->
         <script type="text/javascript" src="./js/script.js"></script>

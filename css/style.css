@@ -6,6 +6,10 @@
 
 /* CSS BIG SECTIONS */
 
+.body-color{
+    background-color: #d7dbd6;
+}
+
 header{
     height: 15vh;
     width: 100%;
@@ -13,7 +17,6 @@ header{
 }
 
 main{
-    height: 95vh;
     min-width: 1200px;
     margin: 0.5rem auto;
     z-index: 2;
@@ -24,13 +27,47 @@ main{
 }
 
 
-/* -------------- */
+/* LEFT SIDE */
 
-.notify-wrapper p{
+.left-side{
+    height: 94vh;
+}
+.profile-area{
+    height: 26%;
+}
+
+.notifications p{
     font-size: .8rem;
 }
-.notify-wrapper a{
+.notifications a{
     font-size: .6rem;
+}
+
+.contacts-list{
+    overflow-y: scroll;
+    height: 74%;
+}
+
+.contact-name i{
+    font-size: 3rem;
+}
+
+.contact-name img{
+    height: 55px;
+    border-radius: 50%;
+}
+
+.contact-name-description span{
+    font-size: .8rem;
+}
+
+.each-card{
+    background-color: #ffffff;
+}
+
+.each-card:hover{
+    background-color: #e9ebeb;
+    cursor: pointer;
 }
 
 
