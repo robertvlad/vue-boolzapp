@@ -76,12 +76,12 @@ i{
     cursor: pointer;
 }
 
+
+/* RIGHT SIDE */
+
 .chat-area{
     display: none;
 }
-
-
-/* RIGHT SIDE */
 
 .right-side{
     height: 94vh;
@@ -92,6 +92,9 @@ i{
     overflow-y: scroll;
 }
 
+.message-color{
+    background-color: #d5f9ba;
+}
 
 /* ICONS */
 
